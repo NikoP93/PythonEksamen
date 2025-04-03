@@ -1,61 +1,9 @@
-import random
-
-#Setup board
-def print_board(board):
-    for i in range(0,9,3):
-        print(" " + " | ".join(board[i:i+3]))
-        if i < 6:
-            print("---+---+---")
-    print()
-
-#player input
-
-def player_input(board, currentPlayer):
-    while True:
-            inp = int(input("Enter a number 1-9: "))
-            if 1 <= inp <= 9 and board[inp - 1] == ' ':
-                board[inp - 1] = currentPlayer
-                break
-            elif 1 <= inp <= 9:
-                print('Field is already taken')
-            else:
-                print('Invalid number')
-
-def computer_move(board):
-    empty_cells = [i for i, cell in enumerate(board) if cell == " "]
-    if empty_cells:
-        move = random.choice(empty_cells)
-        board[move] = "O"
-        
-
-def check_win_horizontal(board):
-    return (
-        board[0] == board[1] == board[2] != ' ' or
-        board[3] == board[4] == board[5] != ' ' or 
-        board[6] == board[7] == board[8] != ' ')
-
-def check_diagonal_win(board):
-       return (
-        board[0] == board[4] == board[8] != ' ' or
-        board[2] == board[4] == board[6] != ' ')
-
-def check_vertical_win(board):
-       return (
-        board[0] == board[3] == board[6] != ' ' or
-        board[1] == board[4] == board[7] != ' ' or 
-        board[2] == board[5] == board[8] != ' ')
-
-
-def check_win_conditions(board):
-    return (
-        check_win_horizontal(board) or
-        check_diagonal_win(board) or
-        check_vertical_win(board)
-        )
-
+from board import print_board, create_board
+from input_handler import player_input,computer_move
+from win_checker import check_win_conditions
 
 def play_game():
-    board = [" " for _ in range(9)]
+    board = create_board()
     current_player = "X"
     move_count = 0
     playing = True
