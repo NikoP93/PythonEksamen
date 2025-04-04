@@ -3,3 +3,7 @@ Computer won in 8 moves
 Computer won in 8 moves
 It's a draw in 9 moves
 It's a draw in 9 moves
+Computer won in 8 moves
+Player won in 7 moves
+Computer won in 6 moves
+It's a draw in 9 moves
