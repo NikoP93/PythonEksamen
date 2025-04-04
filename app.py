@@ -24,18 +24,15 @@ def play_game():
             print_board(board)
             print(f"{current_player} wins!" if check_win_conditions(board) else "It's a draw!")
             
-            winner = 'Player' if current_player == 'X' else 'Computer'
-            text = f'{winner} won in {move_count} moves '
+            text = f'{("Player" if current_player == "X" else "Computer")} won in {move_count} moves' \
+                    if check_win_conditions(board) else f"It's a draw in {move_count} moves"
+
             save_history(text)
             break
 
         # Swap player
         current_player = "O" if current_player == "X" else "X"
-
         
-
-
-
     # Play again option
     should_continue = input("Play again? (y/n): ").lower()
     if should_continue == "y":

@@ -1,2 +1,5 @@
 Computer won in 6 moves 
 Computer won in 8 moves 
+Computer won in 8 moves
+It's a draw in 9 moves
+It's a draw in 9 moves
